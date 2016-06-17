@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=1024, user-scalable=no">
 
   <title>Unit Testing JavaScript With Jasmine</title>
-  
+
   <!-- Required stylesheet -->
   <link rel="stylesheet" href="core/deck.core.css">
-  
+
   <!-- Extension CSS files go here. Remove or add as needed. -->
   <link rel="stylesheet" href="extensions/goto/deck.goto.css">
   <link rel="stylesheet" href="extensions/menu/deck.menu.css">
@@ -19,26 +19,26 @@
   <link rel="stylesheet" href="extensions/scale/deck.scale.css">
     <link href="google-code-prettify/src/prettify.css" type="text/css" rel="stylesheet" />
 
-    
+
   <!-- Style theme. More available in /themes/style/ or create your own. -->
   <link rel="stylesheet" href="themes/style/granite.css">
-  
+
   <!-- Transition theme. More available in /themes/transition/ or create your own. -->
   <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
-  
+
   <!-- Required Modernizr file -->
   <script src="modernizr.custom.js"></script>
 </head>
 <body class="deck-container">
 
     <!-- Begin slides. Just make elements with a class of slide. -->
-    
+
     <section class="slide">
         <h1>Unit Testing JavaScript Using Jasmine</h1>
     </section>
-        
+
     <section class="slide">
-        <h2>What we'll cover</h2>    
+        <h2>What we'll cover</h2>
         <ul>
             <li>Intro to BDD</li>
             <li>Writing Testable JS Code</li>
@@ -49,37 +49,36 @@
             <li>Runs / Waits</li>
             <li>Spies</li>
         </ul>
-    </section> 
-    
+    </section>
+
     <section class="slide">
         <h2>Intro to BDD (Behavior Driven Development)</h2>
         <h3>In a BDD style test you <strong>describe</strong> your code and tell the test what <strong>it</strong> should be doing.  Then you <strong>expect</strong> your code to do something.</h3>
     </section>
-        
+
     <section class="slide">
         <h2>Intro to BDD Continued...</h2>
 <pre class="prettyprint">//describe your code
 describe ( 'presentation.js' , function(){
-  
+
   //what it should do
   it ( 'should be informative', function(){
-      
-      //expect something 
-      expect( 
-          presentation.inform() 
+
+      //expect something
+      expect(
+          presentation.inform()
       ).toBeTruthy();
   )};
 } );</pre>
         <p>Note how <code class="prettyprint">describe + it</code> reads like a sentence.</p>
         <p>&nbsp</p>
     </section>
-    
+
     <section class="slide">
         <h2><span class="red">Red</span> <span class="green">Green</span> Refactor (TDD)</h2>
-        <p>TDD &amp; BDD go together like coffee shops and hipsters.</p>
         <p>The key concept is to write your unit test before you write a line of implementation code.</p>
         <p>
-            Writing code this way helps you: 
+            Writing code this way helps you:
         </p>
         <ul>
             <li>have less chance for false positives</li>
@@ -87,7 +86,7 @@ describe ( 'presentation.js' , function(){
             <li>only what the code that needs to be written</li>
         </ul>
     </section>
-        
+
     <section class="slide">
         <h2>TDD The Purist Way</h2>
         <p>A true TDD purist will tell you to follow the following path to testing enlightenment:</p>
@@ -97,19 +96,18 @@ describe ( 'presentation.js' , function(){
             <li>Try to break the test.</li>
         </ol>
     </section>
-    
+
     <section class="slide">
         <h2>FizzBuzz</h2>
         <p>Lets take a look at a simple FizzBuzz example to so you what this looks like.</p>
         <p>What is FizzBuzz?</p>
         <ul>
-            <li class="slide">FizzBuzz is a common coding exercise in job interviews.</li>
             <li class="slide">If a number is divisible by 3 return "Fizz".</li>
             <li class="slide">If a number is divisible by 5 return "Buzz".</li>
             <li class="slide">If a number is divisible by 3 and 5 return "FizzBuzz".</li>
         </ul>
     </section>
-    
+
     <section class="slide">
         <h2><span class="red">Red</span></h2>
         <p>Spec</p>
@@ -158,15 +156,8 @@ expect(kata.fizzBuzz(0)).toEqual( '' );</pre>
   return '';
 }</pre>
     </section>
-    
-    <section class="slide">
-        <div class="attn-box vcenter">
-            <p class="vcenter">
-                Nobody actually has time for this, but its a noble goal to shoot for!
-            </p>
-        </div>
-    </section>
-    
+
+
     <section class="slide">
       <h1>Writing Testable JS Code</h1>
     </section>
@@ -207,7 +198,7 @@ expect(kata.fizzBuzz(0)).toEqual( '' );</pre>
         'click', this.handleDivClick
      );
 
-     this.itemCount = 
+     this.itemCount =
         this.getItemCount( 'li.item' );
   },
 
@@ -222,7 +213,7 @@ expect(kata.fizzBuzz(0)).toEqual( '' );</pre>
     </section>
 
     <section class="slide">
-      <h2>Moar Testable</h2>
+      <h2>Motr Testable</h2>
       <p>Now we can test our code to make sure:</p>
       <ul>
         <li>init set the click handler</li>
@@ -230,13 +221,12 @@ expect(kata.fizzBuzz(0)).toEqual( '' );</pre>
         <li>getItemCount() returns what we expect</li>
         <li>handleDivClick() does what we want</li>
       </ul>
-        <p>Rebecca Murphey has an excellent presentation on "Writing Testable JavaScript" here: <a href="http://www.youtube.com/watch?v=OzjogCFO4Zo" target="_blank">http://www.youtube.com/watch?v=OzjogCFO4Zo</a></p>
     </section>
-    
+
     <section class="slide">
       <h1>Jasmine, so much more than a shrub.</h1>
     </section>
-    
+
     <section class="slide">
       <h1>Setup</h1>
     </section>
@@ -265,42 +255,42 @@ SpecRunner.html
     <section class="slide">
         <h2>SpecRunner.html</h2>
 <pre class="prettyprint">&lt;!-- include source files here... --&gt;
-&lt;script type=&quot;text/javascript&quot; 
+&lt;script type=&quot;text/javascript&quot;
     src=&quot;src/Player.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; 
+&lt;script type=&quot;text/javascript&quot;
     src=&quot;src/Song.js&quot;&gt;&lt;/script&gt;
 
 &lt;!-- include spec files here... --&gt;
-&lt;script type=&quot;text/javascript&quot; 
+&lt;script type=&quot;text/javascript&quot;
     src=&quot;spec/SpecHelper.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; 
+&lt;script type=&quot;text/javascript&quot;
     src=&quot;spec/PlayerSpec.js&quot;&gt;&lt;/script&gt;</pre>
     </section>
-    
+
     <section class="slide">
-        <h2>Failing Test Output</h2>        
+        <h2>Failing Test Output</h2>
         <img src="images/failingTest.png">
-        
+
     </section>
-    
+
     <section class="slide">
         <h2>Failing Test Output</h2>
         <p style="text-align:left">To show all tests click on the "5 Specs" text.</p>
         <img src="images/failingTestShowAll.png">
         <p style="text-align:left">This is helpful when you have a lot of tests and you want to only run the "Describe" that has a failing test.</p>
     </section>
-    
+
     <section class="slide">
         <h2>Passing Test Output</h2>
         <div class="vcenter">
             <img src="images/passingTest.png">
         </div>
     </section>
-    
+
     <section class="slide">
       <h1>Specs</h1>
     </section>
-    
+
     <section class="slide">
         <h2>Specs</h2>
         <ul>
@@ -309,7 +299,7 @@ SpecRunner.html
             <li><strong class="red">Describe</strong> blocks can be nested. As a rule of thumb I like to have nested <strong class="red">describe</strong> blocks when I have three or more <strong class="red">expect</strong> statements in an <strong class="red">it</strong> block.</li>
         </ul>
     </section>
-    
+
     <section class="slide">
         <h2>Specs</h2>
 <pre class="prettyprint">describe('fizzbuzz'){
@@ -326,7 +316,7 @@ SpecRunner.html
         kata.fizzBuzz(0)
       ).toEqual( '' );
   });
-  
+
 });</pre>
     </section>
 
@@ -382,7 +372,7 @@ afterEach( function (){
       <pre class="prettyprint">toContain( item ) //look for item in array</pre>
       <pre class="prettyprint slide">expect( function(){ fn(); }).toThrow( e ) //fn() should throw an error</pre>
     </section>
-    
+
     <section class="slide">
       <h2>not</h2>
       <p>Any matcher can be "reversed" by including the <strong class="red">not</strong> keyword.</p>
@@ -452,7 +442,7 @@ afterEach( function (){
       <h2>Matchers</h2>
       <h4>For a full list visit <a href="https://github.com/velesin/jasmine-jquery" target="_blank">https://github.com/velesin/jasmine-jquery</a></h4>
     </section>
-    
+
     <section class="slide">
       <h1>Fixtures</h1>
     </section>
@@ -460,7 +450,7 @@ afterEach( function (){
     <section class="slide">
       <h2>Fixtures</h2>
       <ul>
-        <li>Jasmine jQuery provides a powerful api for injecting HTML content into your tests.</li>  
+        <li>Jasmine jQuery provides a powerful api for injecting HTML content into your tests.</li>
         <li>This allows your jQuery code to have DOM elements to run against.</li>
         <li>Fixtures are stored in separate HTML files.</li>
       </ul>
@@ -470,17 +460,17 @@ afterEach( function (){
       <h2>Setting Up Fixtures</h2>
       <p>Jasmine jQuery assumes that they are in the path:</p>
 <pre>spec/javascripts/fixtures</pre>
-    </section>    
+    </section>
 
     <section class="slide">
       <h2>Setting Up Fixtures</h2>
       <p>This path can be overridden by adding the following code to the SpecRunner.html file:</p>
 <pre class="prettyprint">(function(){
-    //this loads fixtures from a fixtures folder 
+    //this loads fixtures from a fixtures folder
     //relative to where SpecRunner.html lives
     jasmine.getFixtures()
-        .fixturesPath = 'fixtures/'; 
-    
+        .fixturesPath = 'fixtures/';
+
     var jasmineEnv = jasmine.getEnv();
 
     jasmineEnv.updateInterval = 1000;</pre>
@@ -494,7 +484,7 @@ afterEach( function (){
   } );
 </pre>
     </section>
-    
+
     <section class="slide">
         <h1>runs / waits</h1>
     </section>
@@ -506,7 +496,7 @@ afterEach( function (){
     $('.hidden').slideDown(5000);
 }</pre>
     </section>
-    
+
     <section class="slide">
       <h2>runs / waits</h2>
       <p>Jasmine provides us with <strong class="red">runs</strong> and <strong class="red">waits</strong> functions for this:</p>
@@ -519,13 +509,13 @@ runs( function(){
 });
 </pre>
     </section>
-    
+
     <section class="slide">
         <h2>runs / waits</h2>
         <p>When you have runs / waits functions Jasmine <strong class="red">runs</strong> the first function, <strong class="red">waits</strong> the duration of the waits function call, then calls the next <strong class="red">runs</strong> function.</p>
         <p>Good for jQuery animations, setTimeouts, setIntervals, or any other asynchronous and timed code.</p>
     </section>
-    
+
     <section class="slide">
       <h1>Spies</h1>
     </section>
@@ -544,17 +534,17 @@ runs( function(){
 }
 </pre>
     </section>
-    
+
     <section class="slide">
         <h2>Spies</h2>
         <p>To use it tell Jasmine to <strong class="red">spyOn</strong> something. By default they are similar to mocks in other unit testing frameworks.</p>
-<pre class="prettyprint">it('must call the success callback', 
+<pre class="prettyprint">it('must call the success callback',
     function(){
         //overwrites showOtherDiv with the spy
-        spyOn( myObj, 'showOtherDiv' ); 
+        spyOn( myObj, 'showOtherDiv' );
 
         expect( myObj.showOtherDiv )
-            .toHaveBeenCalled(); 
+            .toHaveBeenCalled();
     }
 );
 </pre>
@@ -563,28 +553,28 @@ runs( function(){
     <section class="slide">
         <h2>Spies</h2>
         <p>Spies can also be assigned to variables that can be passed into other functions by using the <code class="prettyprint">createSpy</code> function.</p>
-<pre class="prettyprint">it('must call the success callback', 
+<pre class="prettyprint">it('must call the success callback',
     function(){
         callbackSpy = createSpy();
-        
+
         fnThatExpectsACallback( callbackSpy )
-        
+
         expect( callbackSpy )
-            .toHaveBeenCalled(); 
+            .toHaveBeenCalled();
     }
 );
 </pre>
     </section>
-    
+
     <section class="slide">
         <h2>Spy Matchers</h2>
-<pre class="prettyprint">expect( myObj.showOtherDiv ).toHaveBeenCalled(); 
-//validates that the method was called</pre>        
+<pre class="prettyprint">expect( myObj.showOtherDiv ).toHaveBeenCalled();
+//validates that the method was called</pre>
 <pre class="prettyprint slide">expect( myObj.showOtherDiv )
     .toHaveBeenCalledWith( args );
-//validates that the method was called with specific arguments</pre>        
+//validates that the method was called with specific arguments</pre>
     </section>
-    
+
     <section class="slide">
         <h2>Spy Metadata</h2>
         <ul>
@@ -598,9 +588,9 @@ runs( function(){
     <h2>Spy Metadata</h2>
 <pre class="prettyprint">myObj.showOtherDiv.calls //array of calls</pre>
 <pre class="prettyprint slide">myObj.showOtherDiv.calls[0].args //array of args</pre>
-<pre class="prettyprint slide">myObj.showOtherDiv.mostRecentCall //get last call, has same metadata as other calls</pre>    
+<pre class="prettyprint slide">myObj.showOtherDiv.mostRecentCall //get last call, has same metadata as other calls</pre>
     </section>
-    
+
     <section class="slide">
         <h2>Extending Spies</h2>
         <p>Spies can be extended to make your tests more powerful.</p>
@@ -609,30 +599,30 @@ runs( function(){
 <pre class="prettyprint slide">spyOn( myObj, 'populateData' )
     .andReturn( 'foobar' ); //simlar to a stub in other unit testing frameworks</pre>
     </section>
-    
+
     <section class="slide">
         <h1>Questions?</h1>
     </section>
-    
+
     <section class="slide">
         <h1>The End.</h1>
     </section>
     <!-- End slides. -->
-    
-    
+
+
     <!-- Begin extension snippets. Add or remove as needed. -->
-    
+
     <!-- deck.navigation snippet -->
     <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
     <a href="#" class="deck-next-link" title="Next">&#8594;</a>
-    
+
     <!-- deck.status snippet -->
     <p class="deck-status">
         <span class="deck-status-current"></span>
         /
         <span class="deck-status-total"></span>
     </p>
-    
+
     <!-- deck.goto snippet -->
     <form action="." method="get" class="goto-form">
         <label for="goto-slide">Go to slide:</label>
@@ -640,17 +630,17 @@ runs( function(){
         <datalist id="goto-datalist"></datalist>
         <input type="submit" value="Go">
     </form>
-    
+
     <!-- deck.hash snippet -->
     <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
-    
+
     <!-- End extension snippets. -->
-    
-    
+
+
     <!-- Required JS files. -->
     <script src="jquery-1.7.2.min.js"></script>
     <script src="core/deck.core.js"></script>
-    
+
     <!-- Extension JS files. Add or remove as needed. -->
     <script src="core/deck.core.js"></script>
     <script src="extensions/hash/deck.hash.js"></script>
@@ -659,9 +649,9 @@ runs( function(){
     <script src="extensions/status/deck.status.js"></script>
     <script src="extensions/navigation/deck.navigation.js"></script>
     <script src="extensions/scale/deck.scale.js"></script>
-    
+
     <script type="text/javascript" src="google-code-prettify/src/prettify.js"></script>
-        
+
     <!-- Initialize the deck. You can put this in an external file if desired. -->
     <script>
         $(function() {
