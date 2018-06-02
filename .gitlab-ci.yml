@@ -14,7 +14,7 @@ stages:
   - build
 
 mirror:
-  state: mirror
+  stage: mirror
   script:
     - git push --mirror https://sourcepirate:$GPASS@github.com/sourcepirate/tdd-jasmine.git
 
