@@ -9,8 +9,14 @@ before_script:
   - pip3 install awsebcli
 
 stages:
+  - mirror
   - test
   - build
+
+mirror:
+  state: mirror
+  script:
+    - git push --mirror https://sourcepirate:$GPASS@github.com/sourcepirate/tdd-jasmine.git
 
 test:
   stage: test
@@ -24,7 +30,7 @@ build:
   script:
     - docker login registry.gitlab.com --username $USERNAME --password $PASSWORD
     - export VERSION=$(date +%s)
-    - docker build -t registry.gitlab.com/sourcepirate/django-rds-demo:$VERSION .
+    - docker build -t registry.gitlab.com/sourcepirate/django-rds-demo:$VERSION $PWD
     - docker push registry.gitlab.com/sourcepirate/django-rds-demo:$VERSION
   only:
     - master
